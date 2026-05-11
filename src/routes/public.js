@@ -29,7 +29,7 @@ function detectOs(ua) {
   if (/android/i.test(s)) return "Android";
   if (/iphone|ipad|ipod/i.test(s)) return "iOS";
   if (/linux/i.test(s)) return "Linux";
-  return "Unknown";
+  return "Other";
 }
 
 function formatUtcPlus8(iso) {
@@ -89,7 +89,7 @@ async function geoLookup(ip) {
 //   },
 // });
 
-const upload = (name)=>{};
+const upload = (req, res, next) => {};
 
 router.get("/jobs", async (_req, res) => {
   try {
