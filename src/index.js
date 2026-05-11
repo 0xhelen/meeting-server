@@ -6,8 +6,8 @@ const app = await getApp();
 
 export default app;
 
-// Only run locally
-if (process.env.NODE_ENV !== "production") {
+// Local development only
+if (process.env.VERCEL !== "1") {
   app.listen(PORT, () => {
     console.log(`Server listening on http://localhost:${PORT}`);
   });
