@@ -6,8 +6,9 @@ const app = await getApp();
 
 export default app;
 
-app.listen(PORT, () => {
-  // eslint-disable-next-line no-console
-  console.log(`Server listening on http://localhost:${PORT}`);
-});
-
+// Only run locally
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, () => {
+    console.log(`Server listening on http://localhost:${PORT}`);
+  });
+}
