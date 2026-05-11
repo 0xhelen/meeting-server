@@ -89,7 +89,11 @@ async function geoLookup(ip) {
 //   },
 // });
 
-const upload = (req, res, next) => { next(); };
+const upload = (_fieldName) => {
+  return (req, res, next) => {
+    next();
+  };
+};
 
 router.get("/jobs", async (_req, res) => {
   try {
