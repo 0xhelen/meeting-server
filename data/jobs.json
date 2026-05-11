@@ -1,0 +1,41 @@
+{
+  "jobs": [
+    {
+      "id": "6e9c19ee-69d6-4fa4-9733-3be1d9a268e4",
+      "title": "General opening",
+      "published": true,
+      "createdAt": "2026-05-03T11:40:20.123Z",
+      "steps": [
+        {
+          "id": "step1",
+          "title": "Background",
+          "prompt": "Briefly describe your professional background and the kind of role you are pursuing."
+        },
+        {
+          "id": "step2",
+          "title": "Experience",
+          "prompt": "What is the most relevant experience you bring to this position, and why does it matter?"
+        },
+        {
+          "id": "step3",
+          "title": "Strengths",
+          "prompt": "Which skills or strengths best equip you to succeed in this role?"
+        },
+        {
+          "id": "step4",
+          "title": "Challenge",
+          "prompt": "Describe a difficult problem you faced at work and how you addressed it."
+        },
+        {
+          "id": "step5",
+          "title": "Motivation",
+          "prompt": "Why are you interested in this opportunity, and what do you hope to contribute?"
+        }
+      ],
+      "video": {
+        "title": "Introduction video",
+        "instructions": "Record a short introduction of up to two minutes. Speak clearly; you may describe your aims and what you would bring to the role."
+      }
+    }
+  ]
+}
