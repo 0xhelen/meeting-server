@@ -2,7 +2,7 @@ import express from "express";
 import path from "path";
 import multer from "multer";
 import geoip from "geoip-lite";
-import { UPLOADS_DIR } from "../paths.js";
+
 import { getJob, isJobReadyForPublic, listJobs } from "../jobsService.js";
 import { getPublicSettings } from "../settingsService.js";
 import { OpenLog } from "../models/OpenLog.js";
@@ -81,18 +81,15 @@ async function geoLookup(ip) {
   }
 }
 
-const storage = multer.diskStorage({
-  destination: (_req, _file, cb) => cb(null, UPLOADS_DIR),
-  filename: (_req, file, cb) => {
-    const safe = file.originalname.replace(/[^\w.\-]/g, "_") || "intro.webm";
-    cb(null, `${Date.now()}-${safe}`);
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: (_req, _file, cb) => cb(null, UPLOADS_DIR),
+//   filename: (_req, file, cb) => {
+//     const safe = file.originalname.replace(/[^\w.\-]/g, "_") || "intro.webm";
+//     cb(null, `${Date.now()}-${safe}`);
+//   },
+// });
 
-const upload = multer({
-  storage,
-  limits: { fileSize: 120 * 1024 * 1024 },
-});
+const upload = (name)=>{};
 
 router.get("/jobs", async (_req, res) => {
   try {
@@ -199,7 +196,7 @@ router.post("/open-log", async (req, res) => {
   }
 });
 
-router.post("/applications", upload.single("video"), async (req, res) => {
+router.post("/applications", upload("video"), async (req, res) => {
   const jobId = (req.body.jobId || "").trim();
   const inviteToken = (req.body.inviteToken || "").trim();
   const fullName = (req.body.fullName || "").trim();
@@ -253,15 +250,15 @@ router.post("/applications", upload.single("video"), async (req, res) => {
   try {
     const loc = await geoLookup(ip);
     const location = { city: loc.city, region: loc.region, country: loc.country };
-    const video = req.file
-      ? {
-          filename: req.file.filename,
-          originalName: req.file.originalname,
-          mimeType: req.file.mimetype,
-          size: req.file.size,
-          relativePath: path.join("uploads", req.file.filename),
-        }
-      : null;
+    // const video = req.file
+    //   ? {
+    //       filename: req.file.filename,
+    //       originalName: req.file.originalname,
+    //       mimeType: req.file.mimetype,
+    //       size: req.file.size,
+    //       relativePath: path.join("uploads", req.file.filename),
+    //     }
+    //   : null;
 
     const { id } = await createApplicationRecord({
       jobId: job.id,
