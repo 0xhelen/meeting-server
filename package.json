@@ -1,10 +1,9 @@
 {
   "name": "job-app-server",
-  "description": "Express API. Deploy on Vercel: set MONGODB_URI (or MONGODB_USER/MONGODB_PASSWORD/MONGODB_HOST), ADMIN_USER, ADMIN_PASSWORD, JWT_SECRET. Vercel functions cap request bodies at 4.5MB—large video uploads need client direct-to-storage (e.g. Vercel Blob), not multer through this app. Static files: use public/ (express.static is not used on Vercel).",
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=18"
+    "node": "20.x"
   },
   "scripts": {
     "start": "node src/index.js",
