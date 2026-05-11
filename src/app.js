@@ -6,7 +6,6 @@ import path from "path";
 import { fileURLToPath } from "url";
 import publicRoutes from "./routes/public.js";
 import adminRoutes from "./routes/admin.js";
-import { UPLOADS_DIR } from "./paths.js";
 import { connectDatabase } from "./db.js";
 
 let appPromise;
