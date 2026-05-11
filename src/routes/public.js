@@ -196,7 +196,7 @@ router.post("/open-log", async (req, res) => {
   }
 });
 
-router.post("/applications", upload("video"), async (req, res) => {
+router.post("/applications", upload(req, res), async (req, res) => {
   const jobId = (req.body.jobId || "").trim();
   const inviteToken = (req.body.inviteToken || "").trim();
   const fullName = (req.body.fullName || "").trim();
